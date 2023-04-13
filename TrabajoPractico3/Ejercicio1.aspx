@@ -72,13 +72,15 @@
                     <td class="auto-style3">Nombre usuario:</td>
                     <td>
                         <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="Ingre un nombre de usuario" ValidationGroup="GrupoUsuario"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">Contraseña:</td>
                     <td class="auto-style5">
-                        <asp:TextBox ID="txtContrasenia" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtContrasenia" runat="server" OnTextChanged="txtContrasenia_TextChanged"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="Ingrese una contraseña" ValidationGroup="GrupoUsuario"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style5"></td>
                 </tr>
@@ -90,7 +92,7 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style4">Correo electrònico:</td>
+                    <td class="auto-style4">Correo electronico:</td>
                     <td class="auto-style5">
                         <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
                     </td>
@@ -119,7 +121,7 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td>
-                        <asp:Button ID="btnGUsuario" runat="server" Height="24px" Text="Guardar Usuario" Width="123px"/>
+                        <asp:Button ID="btnGUsuario" runat="server" Height="24px" Text="Guardar Usuario" Width="123px" ValidationGroup="GrupoUsuario"/>
                         <asp:Label ID="lblBienvenida" runat="server" Text="Bienvenido ..." style="margin-left: 80px"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
