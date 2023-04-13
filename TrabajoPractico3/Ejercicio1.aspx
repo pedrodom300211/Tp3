@@ -29,6 +29,17 @@
         .auto-style7 {
             height: 23px;
         }
+        .auto-style8 {
+            height: 23px;
+            width: 270px;
+        }
+        .auto-style9 {
+            width: 270px;
+        }
+        .auto-style10 {
+            height: 26px;
+            width: 270px;
+        }
     </style>
 </head>
 <body style="font-weight: 700">
@@ -37,77 +48,88 @@
             <br />
             <table style="width:100%;">
                 <tr>
-                    <td class="auto-style6"></td>
-                    <td class="auto-style7">Localidades</td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style8">Localidades</td>
                     <td class="auto-style7"></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">Nombre de la localidad:</td>
-                    <td>
+                    <td class="auto-style9">
             <asp:TextBox ID="txtLocalidades0" runat="server" Width="174px" ValidationGroup="GrupoLocalidades"></asp:TextBox>
                     &nbsp;
-                        <asp:RequiredFieldValidator ID="rfvLocalidades" runat="server" ControlToValidate="txtLocalidades0" ValidationGroup="GrupoLocalidades">Ingrese localidad</asp:RequiredFieldValidator>
-&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfvLocalidades" runat="server" ControlToValidate="txtLocalidades0" ValidationGroup="GrupoLocalidades">Ingrese localidad</asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>
+                    <td class="auto-style9">
             <asp:Button ID="btnGuardarLocalidad" runat="server" style="font-size: small" Text="Guardar  Localidad" OnClick="btnGuardarLocalidad_Click" ValidationGroup="GrupoLocalidades" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style9">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>Usuarios</td>
+                    <td class="auto-style9">Usuarios</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">Nombre usuario:</td>
+                    <td class="auto-style9">
+                        <asp:TextBox ID="txtNombreUsuario" runat="server" ValidationGroup="GrupoUsuario"></asp:TextBox>
+                    </td>
                     <td>
-                        <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombreUsuario" ErrorMessage="Ingre un nombre de usuario" ValidationGroup="GrupoUsuario"></asp:RequiredFieldValidator>
                     </td>
-                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">Contraseña:</td>
+                    <td class="auto-style10">
+                        <asp:TextBox ID="txtContrasenia" runat="server" OnTextChanged="txtContrasenia_TextChanged" ValidationGroup="GrupoUsuario"></asp:TextBox>
+                    </td>
                     <td class="auto-style5">
-                        <asp:TextBox ID="txtContrasenia" runat="server" OnTextChanged="txtContrasenia_TextChanged"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContrasenia" ErrorMessage="Ingrese una contraseña" ValidationGroup="GrupoUsuario"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style5"></td>
                 </tr>
                 <tr>
                     <td class="auto-style3">Repetir Contraseña:</td>
-                    <td>
-                        <asp:TextBox ID="txtRepContraseña" runat="server"></asp:TextBox>
+                    <td class="auto-style9">
+                        <asp:TextBox ID="txtRepetirContrasenia" runat="server" TextMode="Password" ValidationGroup="GrupoUsuario"></asp:TextBox>
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="rfvRepetirContrasenia" runat="server" ControlToValidate="txtRepetirContrasenia" ValidationGroup="GrupoUsuario">Ingrese nuevamente su contraseña</asp:RequiredFieldValidator>
+                        <br />
+                        <asp:CompareValidator ID="cmprvRepetirContrasenia" runat="server" ControlToCompare="txtContrasenia" ControlToValidate="txtRepetirContrasenia" ValidationGroup="GrupoUsuario">Repitio mal su contraseña</asp:CompareValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style4">Correo electronico:</td>
-                    <td class="auto-style5">
-                        <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+                    <td class="auto-style10">
+                        <asp:TextBox ID="txtMail" runat="server" ValidationGroup="GrupoUsuario"></asp:TextBox>
                     </td>
-                    <td class="auto-style5"></td>
+                    <td class="auto-style5">
+                        <asp:RequiredFieldValidator ID="rfvMail" runat="server" ControlToValidate="txtMail" ValidationGroup="GrupoUsuario">Ingrese un correo electronico</asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RegularExpressionValidator ID="revMail" runat="server" ControlToValidate="txtMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="GrupoUsuario">Ingrese un correo electronico valido</asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style6">CP</td>
-                    <td class="auto-style7">
+                    <td class="auto-style8">
                         <asp:TextBox ID="txtCp" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style7"></td>
                 </tr>
                 <tr>
                     <td class="auto-style6">Localidades:</td>
-                    <td class="auto-style7">
+                    <td class="auto-style8">
                         <asp:DropDownList ID="ddlLocalidades" runat="server" Height="16px" Width="124px">
                         </asp:DropDownList>
                     </td>
@@ -115,20 +137,21 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style9">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>
+                    <td class="auto-style9">
                         <asp:Button ID="btnGUsuario" runat="server" Height="24px" Text="Guardar Usuario" Width="123px" ValidationGroup="GrupoUsuario"/>
+                    </td>
+                    <td>
                         <asp:Label ID="lblBienvenida" runat="server" Text="Bienvenido ..." style="margin-left: 80px"></asp:Label>
                     </td>
-                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style9">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
