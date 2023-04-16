@@ -11,7 +11,7 @@ namespace TrabajoPractico3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            txtContrasenia.TextMode = TextBoxMode.Password; ///Para que tenga formato contraseña
         }
 
         protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
@@ -32,6 +32,26 @@ namespace TrabajoPractico3
                 ddlLocalidades.Items.Add(txtLocalidades0.Text);
                 txtLocalidades0.Text = ""; 
             }
+        }
+
+        protected void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGUsuario_Click(object sender, EventArgs e)
+        {
+            
+            lblUsuario.Text = "Bienvenido " + txtNombreUsuario.Text;
+            txtNombreUsuario.Text = "";
+            txtMail.Text = "";
+            txtCp.Text = "";
+
+        }
+
+        protected void btnInicio_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 }
